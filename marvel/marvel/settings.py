@@ -26,7 +26,10 @@ SECRET_KEY = "django-insecure-cv*i$ibdzi6cpm@m&5+_6o@aow)9i*xjq+^k-*uf35_@t$*p0w
 DEBUG = True
 
 ALLOWED_HOSTS = ['*','https://djangolmsprojects-production.up.railway.app/']
-
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "https://djangolmsprojects-production.up.railway.app",
+]
 
 # Application definition
 
