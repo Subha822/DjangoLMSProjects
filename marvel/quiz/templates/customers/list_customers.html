@@ -1,0 +1,63 @@
+{% extends 'quiz/index.html' %}
+
+{% block content %}
+
+
+
+  <!-- /.card -->
+                <div class="card card-primary mb-4 card-outline">
+                  <div class="card-header border-0">
+                    <h3 class="card-title">Customers</h3>
+                    <div class="card-tools">
+
+                        <a href="{% url 'create_customer' %}" class="btn btn-tool btn-sm"> <i class="bi bi-person-plus-fill" style="font-size: 1.5rem;" ></i> </a>
+                    </div>
+                  </div>
+                  <div class="card-body table-responsive p-0">
+                    <table class="table table-striped align-middle">
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th>Name</th>
+                          <th>Email Address</th>
+                          <th>Phone Number</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for customer in customers %}
+                        <tr>
+                          <td>{{ forloop.counter }}</td>
+                          <td>
+<!--                            <img-->
+<!--                              src="../../dist/assets/img/default-150x150.png"-->
+<!--                              alt="{{ customer }}"-->
+<!--                              class="rounded-circle img-size-32 me-2"-->
+<!--                            />-->
+                            {{ customer.name }}
+                          </td>
+                          <td>{{ customer.email }}</td>
+                          <td>
+                            <small class="text-success me-1">
+                             {{ customer.phone_number }}
+                            </small>
+
+                          </td>
+                          <td>
+
+
+                            <a href="{% url 'update_customer' customer.id %}" class="text-secondary me-4"> <i class="bi bi-pencil-square" ></i>
+                            </a>
+                              <a href="{% url 'delete_customer' customer.id %}" class="text-secondary"> <i class="bi bi-trash3"></i>
+                            </a>
+                          </td>
+                        </tr>
+
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.card -->
+
+{% endblock %}

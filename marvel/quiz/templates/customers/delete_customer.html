@@ -1,0 +1,27 @@
+{% extends 'quiz/index.html' %}
+
+{% block content %}
+ <div class="card card-primary card-outline mb-4" >
+                  <!--begin::Header-->
+                  <div class="card-header"><div class="card-title">Delete Customer</div>
+                  <div class="card-tools">
+                      <a href="{% url 'list_customers' %}" class="btn btn-tool btn-sm"> <i class="bi bi-backspace-reverse-fill"></i> </a>
+                    </div>
+                  </div>
+      <br>
+                       <div class="col d-flex justify-content-center">
+    <!-- Customer name -->
+    <p>Are you sure you want to delete {{ customer.name }}?</p>
+</div>
+<div class="col d-flex justify-content-center">
+    <!-- Delete confirmation form -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Yes, Delete</button>
+    </form>
+</div>
+     <br>
+ </div>
+
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'quiz/index.html' %}
+
+{% block content %}
+
+ <!--begin::Quick Example-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header"><div class="card-title">Create Customer</div>
+                  <div class="card-tools">
+                      <a href="{% url 'list_customers' %}" class="btn btn-tool btn-sm"> <i class="bi bi-backspace-reverse-fill"></i> </a>
+                    </div>
+                  </div>
+
+                  <!--end::Header-->
+                  <!--begin::Form-->
+                  <form method="post" action="{% url 'create_customer' %}">
+                    {% csrf_token %}
+                      <!--begin::Body-->
+                    <div class="card-body">
+                        <div class="mb-3">
+                        <label for="id_name" class="form-label">Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="id_name"
+                          name="name"
+                          maxlength="100"
+                        />
+
+                      </div>
+                      <div class="mb-3">
+                        <label for="id_email" class="form-label">Email address</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          required id="id_email"
+                          name="email"
+                        />
+                        <div id="emailHelp" class="form-text">
+                          We'll never share your email with anyone else.
+                        </div>
+                      </div>
+                        <div class="mb-3">
+                            <label for="id_phone_number">Phone number:</label>
+                            <input
+                            type="text"
+                            name="phone_number"
+                            class="form-control"
+                            maxlength="15"
+                            required id="id_phone_number"
+                            />
+                        </div>
+
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" />
+                      </div>
+
+
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+
+                    <!--end::Footer-->
+                  </form>
+                  <!--end::Form-->
+                </div>
+                <!--end::Quick Example-->
+{% endblock %}
