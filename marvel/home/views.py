@@ -20,8 +20,8 @@ def login_view(request):
             login(request, user)
             return redirect('/')
         else:
-            return render(request, 'customer/login.html', {'error': 'Invalid credentials'})
-    return render(request, 'customer/login.html')
+            return render(request, 'Customer/login.html', {'error': 'Invalid credentials'})
+    return render(request, 'Customer/login.html')
 
 # Register view
 def register_view(request):
@@ -32,7 +32,7 @@ def register_view(request):
             return redirect('login')
     else:
         form = CustomerForm()
-    return render(request, 'customer/register.html', {'form': form})
+    return render(request, 'Customer/register.html', {'form': form})
 
 # Logout view
 def logout_view(request):
